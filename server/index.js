@@ -22,7 +22,7 @@ app.use(cors());
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname, '../public/index.html');
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-app.listen(SERVER_PORT, `Server running on Port ${SERVER_PORT}`);
+app.listen(SERVER_PORT, () => console.log(`Server running on Port ${SERVER_PORT}`));
