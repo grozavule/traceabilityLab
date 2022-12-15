@@ -28,8 +28,10 @@ app.get('/', (req, res) => {
 app.get('/fake', (req, res) => {
     try {
         fakeFunction();
+        res.sendStatus(200);
     } catch(error) {
         rollbar.error(`fakeFunction doesn't exist`);
+        res.sendStatus(400);
     }
 });
 
