@@ -35,4 +35,14 @@ app.get('/fake', (req, res) => {
     }
 });
 
+app.get('/warning', (req, res) => {
+    rollbar.warning(`The warning endpoint has been accessed`);
+    res.sendStatus(200);
+});
+
+app.get('/critical', (req, res) => {
+    rollbar.critical(`The critical endpoint has been accessed`);
+    res.sendStatus(400);
+});
+
 app.listen(SERVER_PORT, () => console.log(`Server running on Port ${SERVER_PORT}`));
